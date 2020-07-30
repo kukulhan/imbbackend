@@ -93,58 +93,6 @@ db.initialize(dbName, collectionName, function (dbCollection) {
     });
   });
 
-
-  //CRUD MONGO
-  // //GET ONE
-  //  app.post("/api/v1/getuser", (request, response) => {
-  //     const itemId = request.body.user_id;
-  //     dbCollection.findOne({ user_id: itemId }, (error, result) => {
-  //        if (error){
-  //          response.status(400);
-  //        }else{
-  //          response.json(result);
-  //        }
-  //     });
-  //  });
-  //  //INSERT ONE
-  //  app.post("/api/v1/insertuser", (request, response) => {
-  //    const item = request.body;
-  //    dbCollection.insertOne(item, (error, result) => {
-  //      if (error){
-  //        response.status(400).json({status: "Existe registro" });
-  //      }else{
-  //        response.status(200).json({status: "Registro exitoso"});
-  //      }
-  //    });
-  //  });
-  //
-  //  //UPDATE ONE
-  //  app.put("/api/v1/updateuser", (request, response) => {
-  //    const itemId = request.body.user_id;
-  //    const itembody = request.body;
-  //    //console.log("Editing item: ", itemId, " to be ", itembody);
-  //    dbCollection.updateOne({ user_id: itemId }, { $set: itembody }, (error, result) => {
-  //      if (!error){
-  //        response.status(200).json({status: "Actualizacion exitosa"});
-  //      }else{
-  //        response.status(400).json({status: "Error actualizacion" });
-  //      }
-  //    });
-  //  });
-  //
-  //  //DELETE USER
-  //  app.delete("/api/v1/deleteuser", (request, response) => {
-  //  const itemId = request.body.user_id;
-  //  //console.log("Delete item with id: ", itemId);
-  //  dbCollection.deleteOne({ user_id: itemId }, function (error, result) {
-  //     if (!error){
-  //       response.status(200).json({status: "Eliminacion exitosa"});
-  //     }else{
-  //       response.status(400).json({status: "Error elimininacion" });
-  //     }
-  //  });
-  // });
-
 }, function (err) {
   throw (err);
 });
@@ -197,14 +145,6 @@ db1.initialize(dbName, collectionName1, function (dbCollection) {
       response.status(400).json({ status: "Token expirado" });
     }
   });
-
-
-
-
-
-
-
-
 
 
   //Obtiene si existe campaña o no
@@ -265,12 +205,6 @@ db1.initialize(dbName, collectionName1, function (dbCollection) {
   });
 
 
-
-
-
-
-
-
   //Obtiene la campala desde el carrito
   app.post("/api/v1/getCampaignList", async (request, response) => {
     const email = request.body.user_email;
@@ -323,9 +257,6 @@ db1.initialize(dbName, collectionName1, function (dbCollection) {
       response.status(400).json({ status: "Token expirado" });
     }
   });
-
-
-
 
 
   //Valida la vigencia de la campaña
@@ -444,9 +375,9 @@ db1.initialize(dbName, collectionName1, function (dbCollection) {
                   var endCampaign = moment(new Date(valResult.day_finish));
                   var secondsDiff = endCampaign.diff(startCampaign, 'seconds');
 
-                  if (secondsDiff <= 0) 
+                  if (secondsDiff <= 0)
                     continue;
-                    
+
 
                   var tmpNameModule = "";
                   var categoryImage = "";
@@ -590,7 +521,6 @@ db4.initialize(dbName, collectionName4, function (dbCollection) {
     })
   })
 
-   //INSERT ONE
    app.post("/api/v1/insertTrafficManager", (request, response) => {
      const item = {
        user_twitter:request.body.user_twitter,
@@ -630,9 +560,6 @@ db4.initialize(dbName, collectionName4, function (dbCollection) {
        }
      }
    });
-
-
-
 }, function (err) {
    throw (err);
 });
@@ -688,6 +615,7 @@ app.post('/api/v1/message', (req, res) => {
     .catch(err => res.json({ "status": "Error de comunicacion con Watson" }));
 });
 
+//Function to send direct messages direct by API Twitter
 function createEchoTwitter(){
   getUsers.get('', function(err, resM, body){
     if (!err && body != null){
@@ -715,12 +643,8 @@ function createEchoTwitter(){
                           });
                         }
                       })
-                    }else{
-                      console.log("limit");
                     }
                   })
-                }else{
-                  console.log("no enviar")
                 }
               }else{
                 var tmpBody = {
