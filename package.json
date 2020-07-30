@@ -1,0 +1,25 @@
+{
+  "name": "backend-ibm-challenge",
+  "version": "1.0.0",
+  "description": "Call for Code 2020 solution",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ibm-watson": "^5.4.0",
+    "moment": "^2.27.0",
+    "mongodb": "^3.5.9",
+    "request-json": "^0.6.5",
+    "twit": "^2.2.11"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
