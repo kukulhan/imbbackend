@@ -439,6 +439,17 @@ db1.initialize(dbName, collectionName1, function (dbCollection) {
       } else if (request.body.time_campaign == "72") {
         request.body.day_finish = moment(new Date()).add(3, 'd').format('YYYY-MM-DD HH:mm:ss');
       }
+      if (hashtags.indexOf("#FuerzaMexico") < 0){
+        hashtags = "#FuerzaMexico " + hashtags;
+      }
+
+      if (hashtags.indexOf("#AyudaSismo") < 0){
+        hashtags = "#AyudaSismo " + hashtags;
+      }
+
+      if (hashtags.indexOf("#Sismo") < 0){
+        hashtags = "#Sismo " + hashtags;
+      }
       request.body.campaign.hashtags = hashtags.split(' ').join(',');
       var item = request.body;
       console.log(item)
